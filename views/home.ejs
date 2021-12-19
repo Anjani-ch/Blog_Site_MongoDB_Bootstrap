@@ -1,0 +1,30 @@
+<%- include('./partials/header.ejs') %>
+
+    <div class="container" id="blogs-container">
+        <h1 class="mb-4">Blogs</h1>
+
+        <% if(blogs.length === 0) { %>
+            <h3>No blogs to show :(</h3>
+        <% } else { %>
+
+            <% blogs.forEach(blog => { %>
+                <div class="border border-2 mb-4">
+                    <div class="container py-3">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h4><%= blog.title %></h4>
+                            <div>
+                                <form class="d-inline" action="/blogs/<%= blog._id %>" method="get"><button name="<%= blog._id %>" type="submit" class="btn btn-primary">View</button></form>
+                                <form class="d-inline" action="/edit/<%= blog._id %>" method="get"><button type="submit" class="btn btn-secondary" name="<%= blog._id %>">Edit</button></form>
+                                <form class="d-inline" action="/blogs/<%= blog._id %>" method="post"><button name="<%= blog._id %>" type="submit" class="btn btn-danger">Delete</button></form>
+                            </div>
+                        </div>
+                        <p class="text-muted"><%= blog.date %></p>
+                        <p><%= blog.content %></p>
+                    </div>
+                </div>
+            <% }) %>
+
+        <% } %>
+    </div>
+
+<%- include('./partials/footer.ejs') %>
