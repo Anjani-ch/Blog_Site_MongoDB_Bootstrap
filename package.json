@@ -1,7 +1,7 @@
 {
   "name": "blog_site_mongodb_bootstrap",
   "version": "1.0.0",
-  "description": "Blog site with node, mongoDB and bootstrap 5",
+  "description": "Blog site with node, local mongoDB and bootstrap 5",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
